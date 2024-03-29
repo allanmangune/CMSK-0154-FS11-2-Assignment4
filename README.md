@@ -31,6 +31,49 @@ The Airline Booking System is a console application designed to facilitate ticke
 - **Principle**: The Notification pattern abstracts the way objects communicate with each other, allowing them to be loosely coupled. It separates concerns by providing a mechanism for sending notifications without directly depending on the recipient.
 - **Implementation**: In the Airline Booking System, the Notification pattern is used to send messages to the user via the console. The `INotification` interface defines the contract for sending notifications, while the `ConsoleNotification` class implements this interface to send notifications to the console.
 
++--------------------------------------------------+
+|                    Main                          |
++--------------------------------------------------+
+| - Run()                                          |
++--------------------------------------------------+
+                        |
+                        |
++-----------------------|--------------------------+
+|                   FlightWorld                    |
++--------------------------------------------------+
+| - Run()                                          |
+| - DisplayMainMenu()                             |
++--------------------------------------------------+
+                  |                         |
+                  |                         |
++-----------------|-------------------------|--------------+
+|              ICommand                      |               |
++--------------------------------------------+               |
+| - Execute()                                |               |
++--------------------------------------------+               |
+        |                         |                         |
+        |                         |                         |
++------------------------+ +------------------------+  +----------------------+
+|     BookTicketCommand  | | ViewSeatingChartCommand|  |    ExitCommand        |
++------------------------+ +------------------------+  +----------------------+
+| - Execute()            | | - Execute()            |  | - Execute()          |
++------------------------+ +------------------------+  +----------------------+
+                  |                                           |
+                  |                                           |
++-----------------|-------------------+-----------------------|---------------------+
+|            ISeatAssignmentStrategy |           INotification |       PlaneConfigurator |
++-----------------------------------+-------------------------+------------------------+
+| + AssignSeat()                   | - SendNotification()     | + Instance : Plane      |
++-----------------------------------+-------------------------+------------------------+
+        |                                          |
+        |                                          |
++------------------------+               +---------------------+  +-----------------+
+|     WindowSeatStrategy |               |  ConsoleNotification|  |   Plane           |
++------------------------+               +---------------------+  +-----------------+
+| + AssignSeat()         |               | + SendNotification()|  | - Rows: List<Row> |
++------------------------+               +---------------------+  +-----------------+
+
+
 ## Requirements
 - .NET 8.0 or later
 
