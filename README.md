@@ -21,7 +21,7 @@ The Airline Booking System is a console application designed to facilitate ticke
 
 ### Command Pattern
 - **Principle**: The Command pattern encapsulates a request as an object, thereby allowing parameterization of clients with queues, requests, and operations. It promotes decoupling between sender and receiver of a request.
-- **Implementation**: In the Airline Booking System, the Command pattern is used to represent different actions (commands) that the application can execute, such as booking a ticket or viewing the seating chart. Each command is encapsulated in its own class (`BookTicketCommand`, `ViewSeatingChartCommand`, etc.), allowing the application to parameterize clients with different commands and execute them dynamically.
+- **Implementation**: In the Airline Booking System, the Command pattern is used to represent different actions (commands) that the application can execute, such as booking a ticket or viewing the seating chart. Each command is encapsulated in its own class (`BookTicketCommand`, `ViewSeatingChartCommand`, and `ExitCommand`).
 
 ### Singleton Pattern
 - **Principle**: The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance. It is useful when exactly one object is needed to coordinate actions across the system.
