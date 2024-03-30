@@ -26,6 +26,8 @@ namespace FlightBookingSystem
             bool isRunning = true;
             while (isRunning)
             {
+                Console.WriteLine("");
+                Console.WriteLine("Press the number of the option you want to select:");
                 Console.WriteLine("1. Book a ticket\n2. See seating chart\n3. Exit");
                 string input = Console.ReadLine();
                 switch (input)
